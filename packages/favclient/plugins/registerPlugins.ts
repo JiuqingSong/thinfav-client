@@ -1,4 +1,4 @@
-﻿import { registerPlugin } from './FavPlugIn';
+import { registerPlugin } from './FavPlugIn';
 import { getPlugin as getGooglePlugin } from './Google/Google';
 import { getPlugin as getBaiduPlugin } from './Baidu/Baidu';
 

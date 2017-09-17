@@ -1,4 +1,4 @@
-﻿import Item from '../../store/schema/Item';
+import Item from '../../store/schema/Item';
 import Group from '../../store/schema/Group';
 import findGroupByItem from '../../utils/findGroupByItem';
 
@@ -16,7 +16,10 @@ function moveItem(item: Item, targetGroup: Group, targetIndex: number): boolean 
 
     let targetItems = targetGroup.items;
     currentGroup.items.splice(currentIndex, 1);
-    targetGroup.items = targetItems.slice(0, targetIndex).concat([item]).concat(targetItems.slice(targetIndex));
+    targetGroup.items = targetItems
+        .slice(0, targetIndex)
+        .concat([item])
+        .concat(targetItems.slice(targetIndex));
 
     return true;
 }

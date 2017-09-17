@@ -1,4 +1,4 @@
-﻿import Group from '../store/schema/Group';
+import Group from '../store/schema/Group';
 
 interface FavPlugIn {
     pluginId: string;

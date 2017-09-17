@@ -1,7 +1,7 @@
-﻿const Render = "render";
-const ComponentWillMount = "componentWillMount";
-const ComponentWillUnmount = "componentWillUnmount";
-const IsMounted = "__isMountedForObserver";
+const Render = 'render';
+const ComponentWillMount = 'componentWillMount';
+const ComponentWillUnmount = 'componentWillUnmount';
+const IsMounted = '__isMountedForObserver';
 
 let observerStack: React.Component<any, any>[] = [];
 
@@ -20,25 +20,25 @@ function getCurrentObserver() {
 function observer(target: Function) {
     let render = target.prototype[Render];
     if (render) {
-        target.prototype[Render] = function () {
+        target.prototype[Render] = function() {
             pushObserver(this);
             let result = render.apply(this, arguments);
             popObserver();
             return result;
-        }
+        };
     }
 
     let componentWillMount = target.prototype[ComponentWillMount];
-    target.prototype[ComponentWillMount] = function () {
+    target.prototype[ComponentWillMount] = function() {
         this[IsMounted] = true;
         return componentWillMount ? componentWillMount.apply(this, arguments) : null;
-    }
+    };
 
     let componentWillUnmount = target.prototype[ComponentWillUnmount];
-    target.prototype[ComponentWillUnmount] = function () {
+    target.prototype[ComponentWillUnmount] = function() {
         this[IsMounted] = false;
         return componentWillUnmount ? componentWillUnmount.apply(this, arguments) : null;
-    }
+    };
 }
 
 export { IsMounted };

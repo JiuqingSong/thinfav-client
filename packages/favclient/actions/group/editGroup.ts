@@ -1,4 +1,4 @@
-﻿import Group from '../../store/schema/Group';
+import Group from '../../store/schema/Group';
 import save from '../save';
 
 function editGroup(group: Group, name: string, isOpened: boolean) {

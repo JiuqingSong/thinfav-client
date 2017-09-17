@@ -1,9 +1,9 @@
-﻿@import-once "../Theme.less";
+﻿@import '../Theme.scss';
 
 .modalDialog {
     position: absolute;
-    border: solid 2px @primaryColor;
-    background-color: @primaryBackgroundColor;
+    border: solid 2px $primaryColor;
+    background-color: $primaryBackgroundColor;
     border-radius: 5px;
     box-shadow: 5px 5px 13px;
     z-index: 100;
@@ -23,8 +23,8 @@
         left: 0;
         right: 0;
         bottom: 0;
-        border-top: solid 1px @primaryColor;
-        background-color: @primaryBackgroundColor;
+        border-top: solid 1px $primaryColor;
+        background-color: $primaryBackgroundColor;
         text-align: right;
     }
 }
@@ -33,8 +33,8 @@
 {
     margin: 10px;
     padding: 5px;
-    background-color: @primaryColor;
-    color: @primaryBackgroundColor;
+    background-color: $primaryColor;
+    color: $primaryBackgroundColor;
     font-weight: bold;
     cursor: pointer;
     min-width: 80px;
@@ -49,6 +49,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: @primaryBackgroundColor;
+    background-color: $primaryBackgroundColor;
     opacity: 0.5;
 }

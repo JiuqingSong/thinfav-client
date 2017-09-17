@@ -1,9 +1,9 @@
-﻿import Item from '../store/schema/Item';
+import Item from '../store/schema/Item';
 import Group from '../store/schema/Group';
 import forEachGroup from '../utils/forEachGroup';
 import setDataFromServer from './setDataFromServer';
-import ajaxCall from 'client/Ajax/ajax';
-import compareObject from 'client/Ajax/compareObject';
+import ajaxCall from 'client/ajax/ajax';
+import compareObject from 'client/ajax/compareObject';
 
 function save(callback?: () => void) {
     let saveData: Group[] = [];
@@ -26,7 +26,7 @@ function save(callback?: () => void) {
         });
     });
 
-    ajaxCall<Group[]>("Fav_SaveGroups.ysf", true, saveData, (result) => {
+    ajaxCall<Group[]>('Fav_SaveGroups.ysf', true, saveData, result => {
         if (!compareObject(saveData, result)) {
             setDataFromServer(result);
         }

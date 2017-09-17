@@ -1,6 +1,6 @@
-﻿import Group from '../../store/schema/Group';
+import Group from '../../store/schema/Group';
 import favStore from '../../store/favStore';
-import { Dialogs, DialogStatus } from '../../store/schema/FavStore';
+import { DialogStatus } from '../../store/schema/FavStore';
 
 function showGroupDialog(group: Group) {
     favStore.dialogs.editingGroup = group;

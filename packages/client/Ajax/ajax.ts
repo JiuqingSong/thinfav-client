@@ -1,4 +1,7 @@
-let dateRegEx = new RegExp('(^|[^\\\\])\\"\\\\/Date\\((-?[0-9]+)(?:[a-zA-Z]|(?:\\+|-)[0-9]{4})?\\)\\\\/\\"', 'g');
+let dateRegEx = new RegExp(
+    '(^|[^\\\\])\\"\\\\/Date\\((-?[0-9]+)(?:[a-zA-Z]|(?:\\+|-)[0-9]{4})?\\)\\\\/\\"',
+    'g'
+);
 let jsonRegEx = new RegExp('[^,:{}\\[\\]0-9.\\-+Eaeflnr-u \\n\\r\\t]', 'g');
 let jsonStringRegEx = new RegExp('"(\\\\.|[^"\\\\])*"', 'g');
 
@@ -7,7 +10,7 @@ function deserialize(source: string): any {
         return null;
     }
 
-    let exp = source.replace(dateRegEx, "$1new Date($2)");
+    let exp = source.replace(dateRegEx, '$1new Date($2)');
 
     if (jsonRegEx.test(exp.replace(jsonStringRegEx, ''))) {
         return null;
@@ -19,7 +22,7 @@ function deserialize(source: string): any {
 function jsEncode(source: string): string {
     return source
         .replace('\\', '\\\\')
-        .replace('\'', '\\\'')
+        .replace("'", "\\'")
         .replace('"', '\\"')
         .replace('<', '\\<')
         .replace('>', '\\>');
@@ -33,7 +36,7 @@ function serialize(source: any): string {
     switch (typeof source) {
         case 'object':
             if (source) {
-                let result = "";
+                let result = '';
                 if (source.constructor == Array) {
                     result += '[';
                     for (let i = 0; i < source.length; ++i) {
@@ -69,7 +72,8 @@ function serialize(source: any): string {
         case 'string':
             return '"' + jsEncode(source as string) + '"';
         case 'boolean':
-            return (source as boolean) ? 'true' : 'false';
+            let sourceBool = source as boolean;
+            return sourceBool ? 'true' : 'false';
         default:
             return 'null';
     }
@@ -80,7 +84,8 @@ function ajaxCall<T>(
     isPost: boolean,
     data: any,
     onSuccess?: (data: T) => void,
-    onError?: (error: any) => void) {
+    onError?: (error: any) => void
+) {
     let request = new XMLHttpRequest();
     let json = serialize(data);
     request.onreadystatechange = (ev: ProgressEvent) => {
@@ -96,7 +101,7 @@ function ajaxCall<T>(
         }
     };
 
-    request.open(isPost ? "POST" : "GET", url, true);
+    request.open(isPost ? 'POST' : 'GET', url, true);
     request.send(json);
 }
 

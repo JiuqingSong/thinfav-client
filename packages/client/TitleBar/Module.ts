@@ -1,4 +1,4 @@
-﻿interface Module {
+interface Module {
     displayName: string;
     name: string;
     selected: boolean;

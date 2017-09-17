@@ -1,6 +1,6 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import DragAndDropManager from './DragAndDropManager';
-import observer from '../Flux/observer';
+import observer from '../flux/observer';
 
 export interface DragAndDropTargetProps {
     className?: string;
@@ -8,14 +8,17 @@ export interface DragAndDropTargetProps {
     manager: DragAndDropManager;
 }
 
+let styles = require('client/dragAndDrop/DragAndDrop.scss');
+
 @observer
 class DragAndDropTarget extends React.Component<DragAndDropTargetProps, {}> {
     render() {
-        let classNames = (this.props.className || "") + " dragTarget";
+        let classNames = (this.props.className || '') + ' ' + styles.dragTarget;
         return (
             <div className={classNames}>
-                { this.props.children }
-            </div>);
+                {this.props.children}
+            </div>
+        );
     }
 
     getData() {

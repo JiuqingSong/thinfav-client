@@ -1,9 +1,9 @@
-﻿import * as React from 'react';
-import observer from 'client/Flux/observer';
+import * as React from 'react';
+import observer from 'client/flux/observer';
 import Group from '../store/schema/Group';
 import Item from '../store/schema/Item';
 import favStore from '../store/favStore';
-import { Dialogs, DialogStatus } from '../store/schema/FavStore';
+import { DialogStatus } from '../store/schema/FavStore';
 import EditGroupDialog from '../components/EditGroupDialog';
 import EditItemDialog from '../components/EditItemDialog';
 
@@ -18,24 +18,24 @@ import closeDialog from '../actions/dialog/closeDialog';
 @observer
 class FavDialogs extends React.Component<{}, {}> {
     render() {
-        return <div>
-            {
-                favStore.dialogs.dialogStatus == DialogStatus.EditGroup &&
-                <EditGroupDialog
-                    groupToEdit={favStore.dialogs.editingGroup}
-                    onEditGroup={this.onEditGroup}
-                    onDeleteGroup={this.onDeleteGroup}
-                    onCancel={closeDialog} />
-            }
-            {
-                favStore.dialogs.dialogStatus == DialogStatus.EditItem &&
-                <EditItemDialog
-                    itemToEdit={favStore.dialogs.editingItem}
-                    onEditItem={this.onEditItem}
-                    onDeleteItem={this.onDeleteItem}
-                    onCancel={closeDialog} />
-            }
-        </div>;
+        return (
+            <div>
+                {favStore.dialogs.dialogStatus == DialogStatus.EditGroup &&
+                    <EditGroupDialog
+                        groupToEdit={favStore.dialogs.editingGroup}
+                        onEditGroup={this.onEditGroup}
+                        onDeleteGroup={this.onDeleteGroup}
+                        onCancel={closeDialog}
+                    />}
+                {favStore.dialogs.dialogStatus == DialogStatus.EditItem &&
+                    <EditItemDialog
+                        itemToEdit={favStore.dialogs.editingItem}
+                        onEditItem={this.onEditItem}
+                        onDeleteItem={this.onDeleteItem}
+                        onCancel={closeDialog}
+                    />}
+            </div>
+        );
     }
 
     private onEditGroup = (group: Group, name: string) => {
@@ -46,13 +46,12 @@ class FavDialogs extends React.Component<{}, {}> {
         }
 
         closeDialog();
-    }
+    };
 
     private onDeleteGroup = (group: Group) => {
         deleteGroup(group);
         closeDialog();
-    }
-
+    };
 
     private onEditItem = (item: Item, name: string, url: string) => {
         if (item) {
@@ -62,12 +61,12 @@ class FavDialogs extends React.Component<{}, {}> {
         }
 
         closeDialog();
-    }
+    };
 
     private onDeleteItem = (item: Item) => {
         deleteItem(item);
         closeDialog();
-    }
+    };
 }
 
 export default FavDialogs;

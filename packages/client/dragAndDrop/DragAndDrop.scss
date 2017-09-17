@@ -1,8 +1,8 @@
-﻿@import-once "../Theme.less";
+﻿@import '../Theme.scss';
 
-.isDragging
+:global(.isDragging)
 {
-    background-color: @primaryColor !important;
+    background-color: $primaryColor !important;
     opacity: 0.2;
     * {
         visibility: hidden;

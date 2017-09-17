@@ -1,4 +1,4 @@
-﻿@import-once "../Theme.less";
+﻿@import "../Theme.scss";
 
 .titleBar
 {
@@ -8,7 +8,7 @@
     height: 0;
     overflow: hidden;
     white-space: nowrap;
-    background-color: @primaryColor;
+    background-color: $primaryColor;
     height: 36px;
     line-height: 36px;
     user-select: none;
@@ -81,11 +81,11 @@
 
 .aboutLine2 
 {
-    color: @primaryColor;
+    color: $primaryColor;
     font-size: 27pt;
-    font-family:微软雅黑;
+    font-family: 微软雅黑;
     font-weight: bold;
-    text-shadow: 2px 2px 2px lighten(@primaryColor, 30%);
+    text-shadow: 2px 2px 2px lighten($primaryColor, 30%);
     margin-bottom: 5px;
 }
 

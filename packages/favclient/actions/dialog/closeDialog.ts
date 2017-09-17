@@ -1,5 +1,5 @@
-﻿import favStore from '../../store/favStore';
-import { Dialogs, DialogStatus } from '../../store/schema/FavStore';
+import favStore from '../../store/favStore';
+import { DialogStatus } from '../../store/schema/FavStore';
 
 function closeDialog() {
     favStore.dialogs.editingGroup = null;

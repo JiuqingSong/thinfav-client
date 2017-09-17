@@ -1,4 +1,6 @@
-﻿import * as React from 'react';
+import * as React from 'react';
+
+let styles = require('client/titleBar/TitleBar.scss');
 
 export interface TitleBarButtonProp {
     text: string;
@@ -11,7 +13,13 @@ export interface TitleBarButtonProps {
 
 class TitleBarButton extends React.Component<TitleBarButtonProps, {}> {
     render() {
-        return <div className="titleBarButton"><a onClick={this.props.button.onClick}>{this.props.button.text}</a></div>;
+        return (
+            <div className={styles.titleBarButton}>
+                <a onClick={this.props.button.onClick}>
+                    {this.props.button.text}
+                </a>
+            </div>
+        );
     }
 }
 

@@ -1,4 +1,4 @@
-﻿import makeObservable from './makeObservable';
+import makeObservable from './makeObservable';
 import { getCurrentObserver, IsMounted } from './observer';
 
 class Observable {
@@ -13,7 +13,7 @@ class Observable {
 
     getKey = () => {
         return this.key;
-    }
+    };
 
     getValue = () => {
         let observer = getCurrentObserver();
@@ -23,7 +23,7 @@ class Observable {
         }
 
         return this.value;
-    }
+    };
 
     setValue = (value: any) => {
         if (this.value != value) {
@@ -31,11 +31,11 @@ class Observable {
             makeObservable(this.value, this);
             this.forceUpdate();
         }
-    }
+    };
 
     forceUpdate = () => {
         this.observers.forEach(observer => (<any>observer)[IsMounted] && observer.forceUpdate());
-    }
+    };
 }
 
 export default Observable;

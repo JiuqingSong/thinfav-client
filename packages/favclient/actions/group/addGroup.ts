@@ -1,4 +1,4 @@
-﻿import forEachGroup from '../../utils/forEachGroup';
+import forEachGroup from '../../utils/forEachGroup';
 import getTemporaryId from '../../utils/getTemporaryId';
 import favStore from '../../store/favStore';
 import Group from '../../store/schema/Group';
@@ -7,7 +7,7 @@ import save from '../save';
 function findShortestColumn(): number {
     let itemCounts = [0, 0, 0];
 
-    forEachGroup((group, columnId) => itemCounts[columnId] += group.items.length + 1);
+    forEachGroup((group, columnId) => (itemCounts[columnId] += group.items.length + 1));
 
     let columnId = itemCounts[0] > itemCounts[1] ? 1 : 0;
     columnId = itemCounts[columnId] > itemCounts[2] ? 2 : columnId;

@@ -1,19 +1,18 @@
-﻿import observer from '../Flux/observer';
-import Observable from '../Flux/Observable';
+import Observable from '../flux/Observable';
 
-const ObservablesKey = "__observables";
-const ObservableFunctions = ["push", "pop", "splice", "reverse", "shift", "sort", "unshift"];
+const ObservablesKey = '__observables';
+const ObservableFunctions = ['push', 'pop', 'splice', 'reverse', 'shift', 'sort', 'unshift'];
 
 function observeArrayFunctions(array: Array<any>, parentObservable?: Observable) {
     ObservableFunctions.forEach(name => {
         var func = (<any>Array.prototype)[name];
         Object.defineProperty(array, name, {
-            value: function () {
+            value: function() {
                 let retVal = func.apply(array, arguments);
                 makeObservable(array, parentObservable);
                 parentObservable.forceUpdate();
                 return retVal;
-            }
+            },
         });
     });
 }
@@ -22,7 +21,7 @@ function makeObservableArray(array: Array<any>, parentObservable?: Observable) {
     let len = array.length;
 
     for (let i = 0; i < len; i++) {
-        if (Object.getOwnPropertyDescriptor(array, <string><any>i).get) {
+        if (Object.getOwnPropertyDescriptor(array, <string>(<any>i)).get) {
             continue;
         }
 
@@ -30,19 +29,25 @@ function makeObservableArray(array: Array<any>, parentObservable?: Observable) {
         let observable = new Observable(i.toString(), value);
         makeObservable(value, observable);
 
-        Object.defineProperty(array, <string><any>i, {
+        Object.defineProperty(array, <string>(<any>i), {
             get: observable.getValue,
             set: observable.setValue,
         });
     }
 
-    if (parentObservable && array["push"] == Array.prototype["push"]) {
+    if (parentObservable && array['push'] == Array.prototype['push']) {
         observeArrayFunctions(array, parentObservable);
     }
- }
+}
 
 function makeObservable(o: Object, parentObservable?: Observable) {
-    if (!o || (<any>o)[ObservablesKey] || typeof o != 'object' || o.constructor == Date || o.constructor == Function) {
+    if (
+        !o ||
+        (<any>o)[ObservablesKey] ||
+        typeof o != 'object' ||
+        o.constructor == Date ||
+        o.constructor == Function
+    ) {
         return;
     }
 
@@ -64,6 +69,6 @@ function makeObservable(o: Object, parentObservable?: Observable) {
         });
         (<any>o)[ObservablesKey] = observables;
     }
-} 
+}
 
 export default makeObservable;

@@ -1,6 +1,6 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import DragAndDropElement from './DragAndDropElement';
-import observer from '../Flux/observer';
+import observer from '../flux/observer';
 
 export interface DragAndDropTriggerProps {
     getDragAndDropElement: () => DragAndDropElement;
@@ -10,22 +10,23 @@ export interface DragAndDropTriggerProps {
 @observer
 class DragAndDropTrigger extends React.Component<DragAndDropTriggerProps, {}> {
     render() {
-        let classNames = this.props.className || "";
+        let classNames = this.props.className || '';
         return (
             <div ref="div" onMouseDown={this.startDrag} className={classNames}>
                 {this.props.children}
-            </div>);
+            </div>
+        );
     }
 
     private startDrag = (ev: React.MouseEvent<EventTarget>) => {
-        if (ev.button == 0 && ev.target == (this.refs["div"] as HTMLElement)) {
+        if (ev.button == 0 && ev.target == (this.refs['div'] as HTMLElement)) {
             let element = this.props.getDragAndDropElement();
 
             if (element) {
                 element.startDrag(ev);
             }
         }
-    }
+    };
 }
 
 export default DragAndDropTrigger;

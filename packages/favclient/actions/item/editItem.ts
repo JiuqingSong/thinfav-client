@@ -1,4 +1,4 @@
-﻿import Item from '../../store/schema/Item';
+import Item from '../../store/schema/Item';
 import save from '../save';
 
 function editItem(item: Item, name: string, url: string, checked: boolean) {

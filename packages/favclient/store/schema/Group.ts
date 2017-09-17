@@ -1,4 +1,4 @@
-﻿import { DragAndDropProps } from 'client/DragAndDrop/DragAndDropManager';
+import { DragAndDropProps } from 'client/dragAndDrop/DragAndDropManager';
 import Item from './Item';
 
 interface Group extends DragAndDropProps {

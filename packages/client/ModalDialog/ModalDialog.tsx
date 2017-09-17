@@ -1,4 +1,4 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 export interface ModalDialogButton {
@@ -10,6 +10,8 @@ export interface ModalDialogProps {
     buttons: ModalDialogButton[];
 }
 
+let styles = require('client/modalDialog/modalDialog.scss');
+
 class ModalDialog extends React.Component<ModalDialogProps, {}> {
     private dialogDiv: HTMLDivElement;
     private dialogRoot: HTMLDivElement;
@@ -20,12 +22,12 @@ class ModalDialog extends React.Component<ModalDialogProps, {}> {
     }
 
     componentDidMount() {
-        window.addEventListener("resize", this.repositionDialog);
-        this.dialogDiv = document.createElement("div");
+        window.addEventListener('resize', this.repositionDialog);
+        this.dialogDiv = document.createElement('div');
         document.body.appendChild(this.dialogDiv);
-        this.dialogMask = document.createElement("div");
+        this.dialogMask = document.createElement('div');
         document.body.appendChild(this.dialogMask);
-        this.dialogMask.className = "modalDialogMask";
+        this.dialogMask.className = styles.modalDialogMask;
         this.realRender();
         this.repositionDialog();
     }
@@ -36,25 +38,31 @@ class ModalDialog extends React.Component<ModalDialogProps, {}> {
     }
 
     componentWillUnmount() {
-        window.removeEventListener("resize", this.repositionDialog);
+        window.removeEventListener('resize', this.repositionDialog);
         ReactDOM.unmountComponentAtNode(this.dialogDiv);
         document.body.removeChild(this.dialogDiv);
         document.body.removeChild(this.dialogMask);
     }
 
     private realRender() {
-        this.dialogMask.style.display = this.props.children ? "block" : "none";
-        let element = this.props.children ?
-            (
-                <div className="modalDialog" ref={ref => this.dialogRoot = ref}>
-                    <div className="dialogBody">{this.props.children}</div>
-                    <div className="dialogButtonPane">
-                        {
-                            this.props.buttons.map(button => <button key={button.text} className="modalDialogButton" onClick={button.onClick}>{button.text}</button>)
-                        }
-                    </div>
-                </div>
-            ) : null;
+        this.dialogMask.style.display = this.props.children ? 'block' : 'none';
+        let element = this.props.children
+            ? <div className={styles.modalDialog} ref={ref => (this.dialogRoot = ref)}>
+                  <div className={styles.dialogBody}>
+                      {this.props.children}
+                  </div>
+                  <div className={styles.dialogButtonPane}>
+                      {this.props.buttons.map(button =>
+                          <button
+                              key={button.text}
+                              className={styles.modalDialogButton}
+                              onClick={button.onClick}>
+                              {button.text}
+                          </button>
+                      )}
+                  </div>
+              </div>
+            : null;
 
         if (element) {
             ReactDOM.render(element, this.dialogDiv);
@@ -71,10 +79,10 @@ class ModalDialog extends React.Component<ModalDialogProps, {}> {
             let windowHeight = window.innerHeight;
             let left = (windowWidth - width) / 2;
             let top = (windowHeight - height) / 2;
-            this.dialogRoot.style.left = left + "px";
-            this.dialogRoot.style.top = top + "px";
+            this.dialogRoot.style.left = left + 'px';
+            this.dialogRoot.style.top = top + 'px';
         }
-    }
+    };
 }
 
 export default ModalDialog;

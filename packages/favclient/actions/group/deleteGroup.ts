@@ -1,4 +1,4 @@
-﻿import Group from '../../store/schema/Group';
+import Group from '../../store/schema/Group';
 import getGroups from '../../utils/getGroups';
 import save from '../save';
 

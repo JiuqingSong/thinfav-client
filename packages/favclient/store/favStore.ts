@@ -1,6 +1,6 @@
-﻿import Group from './schema/Group';
+import Group from './schema/Group';
 import FavStore, { DialogStatus } from './schema/FavStore';
-import makeObservable from 'client/Flux/makeObservable';
+import makeObservable from 'client/flux/makeObservable';
 
 let favStore: FavStore = {
     groups: [[], [], []],
@@ -19,6 +19,6 @@ export default favStore;
 
 function initStore(groups: Group[][]) {
     favStore.groups = groups;
-};
+}
 
 export { initStore };

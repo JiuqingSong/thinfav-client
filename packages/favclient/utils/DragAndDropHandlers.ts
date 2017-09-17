@@ -1,10 +1,10 @@
-﻿import * as React from 'react';
+import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Item from '../store/schema/Item';
 import Group from '../store/schema/Group';
-import { DragAndDropHandler } from 'client/DragAndDrop/DragAndDropManager';
-import DragAndDropElement from 'client/DragAndDrop/DragAndDropElement';
-import DragAndDropTarget from 'client/DragAndDrop/DragAndDropTarget';
+import { DragAndDropHandler } from 'client/dragAndDrop/DragAndDropManager';
+import DragAndDropElement from 'client/dragAndDrop/DragAndDropElement';
+import DragAndDropTarget from 'client/dragAndDrop/DragAndDropTarget';
 import save from '../actions/save';
 import moveGroup from '../actions/dragAndDrop/moveGroup';
 import moveItem from '../actions/dragAndDrop/moveItem';

@@ -1,4 +1,4 @@
-﻿import Item from '../../store/schema/Item';
+import Item from '../../store/schema/Item';
 import Group from '../../store/schema/Group';
 import getTemporaryId from '../../utils/getTemporaryId';
 import addGroup from '../group/addGroup';
@@ -11,7 +11,7 @@ function addItem(targetGroup: Group, name: string, url: string, callback?: () =>
         id: getTemporaryId(),
         displayName: name,
         checked: false,
-        url: url
+        url: url,
     };
 
     targetGroup = targetGroup || addGroup(DefaultGroupName, false);

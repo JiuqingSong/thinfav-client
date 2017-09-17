@@ -1,4 +1,4 @@
-﻿import Item from '../../store/schema/Item';
+import Item from '../../store/schema/Item';
 import findGroupByItem from '../../utils/findGroupByItem';
 import save from '../save';
 

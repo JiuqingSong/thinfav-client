@@ -1,7 +1,7 @@
-﻿let tempId = 0;
+let tempId = 0;
 
 function getTemporaryId(): string {
-    return "" + (tempId++);
+    return '' + tempId++;
 }
 
 export default getTemporaryId;

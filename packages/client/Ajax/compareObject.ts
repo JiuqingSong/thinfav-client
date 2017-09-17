@@ -1,4 +1,4 @@
-﻿let compareObject: (obj1: any, obj2: any) => boolean;
+let compareObject: (obj1: any, obj2: any) => boolean;
 
 function compareArray(array1: any[], array2: any[]): boolean {
     if (array1.length != array2.length) {
@@ -19,11 +19,13 @@ compareObject = function(obj1: any, obj2: any): boolean {
         return true;
     }
 
-    if (!obj1 ||
+    if (
+        !obj1 ||
         !obj2 ||
         typeof obj1 != typeof obj2 ||
         typeof obj1 != 'object' ||
-        (<Object>obj1).constructor != (<Object>obj2).constructor) {
+        (<Object>obj1).constructor != (<Object>obj2).constructor
+    ) {
         return false;
     }
 
@@ -40,13 +42,16 @@ compareObject = function(obj1: any, obj2: any): boolean {
         }
 
         for (let i = 0; i < keys1.length; i++) {
-            if (keys1[i] != keys2[i] || !compareObject((<any[]>obj1)[<any>keys1[i]], (<any[]>obj2)[<any>keys2[i]])) {
+            if (
+                keys1[i] != keys2[i] ||
+                !compareObject((<any[]>obj1)[<any>keys1[i]], (<any[]>obj2)[<any>keys2[i]])
+            ) {
                 return false;
             }
         }
 
         return true;
     }
-}
+};
 
 export default compareObject;

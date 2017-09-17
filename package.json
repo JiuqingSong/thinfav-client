@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./node_modules/typescript/lib/tsc.js"
+    "build": "node ./node_modules/typescript/lib/tsc.js && node ./node_modules/webpack/bin/webpack.js"
   },
   "author": "songthin",
   "license": "ISC",
@@ -16,6 +16,11 @@
   "devDependencies": {
     "@types/react": "^16.0.5",
     "@types/react-dom": "15.5.4",
-    "typescript": "2.5.2"
+    "@types/node": "8.0.28",
+    "typescript": "2.5.2",
+    "webpack": "3.6.0",
+    "css-loader": "0.23.1",
+    "node-sass": "4.5.3",
+    "sass-loader": "4.0.2"
   }
 }

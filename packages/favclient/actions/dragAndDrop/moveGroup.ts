@@ -1,4 +1,4 @@
-﻿import Group from '../../store/schema/Group';
+import Group from '../../store/schema/Group';
 import favStore from '../../store/favStore';
 
 function moveGroup(group: Group, targetColumnId: number, targetIndex: number): boolean {
@@ -16,7 +16,10 @@ function moveGroup(group: Group, targetColumnId: number, targetIndex: number): b
     let targetGroups = groups[targetColumnId];
     groups[group.columnId].splice(currentIndex, 1);
     group.columnId = targetColumnId;
-    favStore.groups[targetColumnId] = targetGroups.slice(0, targetIndex).concat([group]).concat(targetGroups.slice(targetIndex));
+    favStore.groups[targetColumnId] = targetGroups
+        .slice(0, targetIndex)
+        .concat([group])
+        .concat(targetGroups.slice(targetIndex));
 
     return true;
 }

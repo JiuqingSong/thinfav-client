@@ -1,7 +1,7 @@
-﻿import Item from '../../store/schema/Item';
+import Item from '../../store/schema/Item';
 import Group from '../../store/schema/Group';
 import favStore from '../../store/favStore';
-import { Dialogs, DialogStatus } from '../../store/schema/FavStore';
+import { DialogStatus } from '../../store/schema/FavStore';
 
 function showItemDialog(group: Group, item: Item) {
     favStore.dialogs.editingItem = item;
@@ -9,4 +9,4 @@ function showItemDialog(group: Group, item: Item) {
     favStore.dialogs.dialogStatus = DialogStatus.EditItem;
 }
 
-export default showItemDialog; 
+export default showItemDialog;

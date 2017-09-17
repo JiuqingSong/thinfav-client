@@ -1,4 +1,4 @@
-﻿import { DragAndDropProps } from 'client/DragAndDrop/DragAndDropManager';
+import { DragAndDropProps } from 'client/dragAndDrop/DragAndDropManager';
 
 interface Item extends DragAndDropProps {
     id: string;

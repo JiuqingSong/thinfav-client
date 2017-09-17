@@ -1,4 +1,17 @@
-﻿@import "../../client/client.less";
+﻿@import '../client/Theme.scss';
+
+.modalDialogButton
+{
+    margin: 10px;
+    padding: 5px;
+    background-color: $primaryColor;
+    color: $primaryBackgroundColor;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 80px;
+    font-size: 11pt;
+    border-width: 0;
+}
 
 .favPane
 {
@@ -23,15 +36,15 @@
 {
     margin-bottom: 5px;
     user-select: none;
-    border: solid 1px @primaryColor;
+    border: solid 1px $primaryColor;
     box-sizing: border-box;
 }
 
 .favGroupTitle
 {
     font-weight: bold;
-    color: @primaryBackgroundColor;
-    background-color: @primaryColor;
+    color: $primaryBackgroundColor;
+    background-color: $primaryColor;
     opacity: 0.7;
     text-overflow: ellipsis;
     height: 30px;
@@ -46,14 +59,14 @@
     white-space: nowrap;
     a 
     {
-        color: @primaryBackgroundColor;
+        color: $primaryBackgroundColor;
         cursor: pointer;
     }
 }
 
 .favGroupBody
 {
-    background-color: @primaryBackgroundColor;
+    background-color: $primaryBackgroundColor;
     padding: 2px 6px;
     overflow: hidden;
     clear: both;
@@ -61,7 +74,7 @@
 
 .favItem 
 {
-    background-color: @primaryBackgroundColor;
+    background-color: $primaryBackgroundColor;
     cursor: move;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -74,7 +87,7 @@
     }
 }
 
-.isDragging .favItem 
+:global(.isDragging) .favItem 
 {
     background-color: transparent;
 }
@@ -96,12 +109,12 @@
 
 .favItem .hoverButton
 {
-    color: @primaryTextColor;
+    color: $primaryTextColor;
 }
 
 .hoverButton:hover
 {
-    border:solid 1px @primaryBackgroundColor;
+    border:solid 1px $primaryBackgroundColor;
 }
 
 .favGroupTitle:hover .hoverButton,
@@ -118,7 +131,7 @@
 
 .dialogTable 
 {
-    .tableDiv;
+    @extend .tableDiv;
     margin-top: 20px;
 }
 
@@ -189,11 +202,9 @@
     border: solid 2px transparent;
     display: inline-block;
     margin: 10px 5px 0 5px;
-}
-
-.plugInIcon.selected
-{
-    border: dotted 2px @primaryColor;
+    &.selected {
+        border: dotted 2px $primaryColor;
+    }
 }
 
 .addFavTitle
@@ -201,8 +212,8 @@
     height: 44px;
     font-size: 21pt;
     font-family: 微软雅黑;
-    background-color: @primaryColor;
-    color: @primaryBackgroundColor;
+    background-color: $primaryColor;
+    color: $primaryBackgroundColor;
     margin-bottom: 10px;
     padding-left: 10px;
 }
@@ -212,26 +223,23 @@
     display: table;
     font-size: 13pt;
     padding: 10px;
-}
-
-.addFavBody input,
-.addFavBody select
-{
-    font-size: 13pt;
+    input,
+    select {
+        font-size: 13pt;
+    }
 }
 
 .addFavButtonRow
 {
     text-align: center;
-}
-.addFavButtonRow > button
-{
-    background-color: @primaryColor;
-    border: solid 1px transparent;
-    color: @primaryBackgroundColor;
-    min-width: 80px;
-    height: 28px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 15pt;
+    button {
+        background-color: $primaryColor;
+        border: solid 1px transparent;
+        color: $primaryBackgroundColor;
+        min-width: 80px;
+        height: 28px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 15pt;
+    }
 }
