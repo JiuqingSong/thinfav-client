@@ -1,0 +1,54 @@
+﻿@import-once "../Theme.less";
+
+.modalDialog {
+    position: absolute;
+    border: solid 2px @primaryColor;
+    background-color: @primaryBackgroundColor;
+    border-radius: 5px;
+    box-shadow: 5px 5px 13px;
+    z-index: 100;
+    min-width: 300px;
+    max-width: 600px;
+    min-height: 200px;
+    max-height: 500px;
+
+    .dialogBody {
+        margin: 20px 20px 70px;
+        overflow-y: auto;
+    }
+
+    .dialogButtonPane
+    {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-top: solid 1px @primaryColor;
+        background-color: @primaryBackgroundColor;
+        text-align: right;
+    }
+}
+
+.modalDialogButton
+{
+    margin: 10px;
+    padding: 5px;
+    background-color: @primaryColor;
+    color: @primaryBackgroundColor;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 80px;
+    font-size: 11pt;
+    border-width: 0;
+}
+
+.modalDialogMask
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: @primaryBackgroundColor;
+    opacity: 0.5;
+}

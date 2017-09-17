@@ -1,0 +1,21 @@
+﻿@import-once "../Theme.less";
+
+.isDragging
+{
+    background-color: @primaryColor !important;
+    opacity: 0.2;
+    * {
+        visibility: hidden;
+    }
+}
+
+.isFlying
+{
+    position: absolute;
+    box-shadow: 3px 3px 3px;
+}
+
+.dragTarget
+{
+    position: relative;
+}

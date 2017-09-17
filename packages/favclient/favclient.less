@@ -1,0 +1,237 @@
+﻿@import "../../client/client.less";
+
+.favPane
+{
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.favColumn
+{
+    flex-grow: 1;
+    width: 30%;
+    padding: 5px;
+}
+
+.favGroup
+{
+    margin-bottom: 5px;
+    user-select: none;
+    border: solid 1px @primaryColor;
+    box-sizing: border-box;
+}
+
+.favGroupTitle
+{
+    font-weight: bold;
+    color: @primaryBackgroundColor;
+    background-color: @primaryColor;
+    opacity: 0.7;
+    text-overflow: ellipsis;
+    height: 30px;
+}
+
+.favGroupName
+{
+    padding: 4px 6px;
+    cursor: move;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    a 
+    {
+        color: @primaryBackgroundColor;
+        cursor: pointer;
+    }
+}
+
+.favGroupBody
+{
+    background-color: @primaryBackgroundColor;
+    padding: 2px 6px;
+    overflow: hidden;
+    clear: both;
+}
+
+.favItem 
+{
+    background-color: @primaryBackgroundColor;
+    cursor: move;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 24px;
+    box-sizing: border-box;
+    input
+    {
+        cursor: default;
+    }
+}
+
+.isDragging .favItem 
+{
+    background-color: transparent;
+}
+
+.hoverButton
+{
+    background-color: transparent;
+    border: solid 1px transparent;
+    color: white;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    display: none;
+    margin: 4px 0;
+}
+
+.favItem .hoverButton
+{
+    color: @primaryTextColor;
+}
+
+.hoverButton:hover
+{
+    border:solid 1px @primaryBackgroundColor;
+}
+
+.favGroupTitle:hover .hoverButton,
+.favItem:hover .hoverButton
+{
+    display: block;
+}
+
+.tableDiv
+{
+    display: table;
+    width: 100%;
+}
+
+.dialogTable 
+{
+    .tableDiv;
+    margin-top: 20px;
+}
+
+.trDiv
+{
+    display: table-row;
+    height: 32px;
+}
+
+.tdDiv
+{
+    display: table-cell;
+}
+
+.tableInput
+{
+    box-sizing: border-box;
+    width: 100%;
+    height: 26px;
+}
+
+.addNewItemLink
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.favPane > .addNewItemLink
+{
+    margin: 10px 0;
+}
+
+.addNewItemLink > a
+{
+    color: #999;
+}
+
+.googleLogo
+{
+    vertical-align: bottom;
+    padding-right: 10px;
+}
+
+.baiduLogo
+{
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.selectedTitle
+{
+    font-size: 21pt;
+    font-weight: bold;
+}
+
+.unselectedTitle
+{
+    font-size: 21pt;
+    color: #808080;
+}
+
+.plugInIcon
+{
+    border: solid 2px transparent;
+    display: inline-block;
+    margin: 10px 5px 0 5px;
+}
+
+.plugInIcon.selected
+{
+    border: dotted 2px @primaryColor;
+}
+
+.addFavTitle
+{
+    height: 44px;
+    font-size: 21pt;
+    font-family: 微软雅黑;
+    background-color: @primaryColor;
+    color: @primaryBackgroundColor;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.addFavBody
+{
+    display: table;
+    font-size: 13pt;
+    padding: 10px;
+}
+
+.addFavBody input,
+.addFavBody select
+{
+    font-size: 13pt;
+}
+
+.addFavButtonRow
+{
+    text-align: center;
+}
+.addFavButtonRow > button
+{
+    background-color: @primaryColor;
+    border: solid 1px transparent;
+    color: @primaryBackgroundColor;
+    min-width: 80px;
+    height: 28px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15pt;
+}

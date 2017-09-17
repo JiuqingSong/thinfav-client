@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build;CompileCss" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{19CD0E5A-939D-436F-BE5D-517B3A7D101A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>FavClient</AssemblyName>
+    <EntryFile>index.js</EntryFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="actions\group\addGroup.ts" />
+    <TypeScriptCompile Include="actions\item\addItem.ts" />
+    <TypeScriptCompile Include="actions\dialog\closeDialog.ts" />
+    <TypeScriptCompile Include="actions\group\deleteGroup.ts" />
+    <TypeScriptCompile Include="actions\item\deleteItem.ts" />
+    <TypeScriptCompile Include="actions\group\editGroup.ts" />
+    <TypeScriptCompile Include="actions\item\editItem.ts" />
+    <TypeScriptCompile Include="actions\dragAndDrop\moveGroup.ts" />
+    <TypeScriptCompile Include="actions\dragAndDrop\moveItem.ts" />
+    <TypeScriptCompile Include="actions\openAllSelections.ts" />
+    <TypeScriptCompile Include="actions\save.ts" />
+    <TypeScriptCompile Include="actions\dragAndDrop\setGroupFlying.ts" />
+    <TypeScriptCompile Include="actions\setDataFromServer.ts" />
+    <TypeScriptCompile Include="actions\dragAndDrop\setItemFlying.ts" />
+    <TypeScriptCompile Include="actions\dialog\showGroupDialog.ts" />
+    <TypeScriptCompile Include="actions\dialog\showItemDialog.ts" />
+    <TypeScriptCompile Include="components\AddFav.tsx" />
+    <TypeScriptCompile Include="components\FavColumn.tsx" />
+    <TypeScriptCompile Include="components\FavDialogs.tsx" />
+    <TypeScriptCompile Include="components\FavFlyings.tsx" />
+    <TypeScriptCompile Include="plugins\Baidu\Baidu.tsx" />
+    <TypeScriptCompile Include="plugins\registerPlugins.ts" />
+    <TypeScriptCompile Include="store\favStore.ts" />
+    <TypeScriptCompile Include="store\schema\FavStore.ts" />
+    <TypeScriptCompile Include="store\schema\Group.ts" />
+    <TypeScriptCompile Include="store\schema\Item.ts" />
+    <TypeScriptCompile Include="utils\DragAndDropHandlers.ts" />
+    <TypeScriptCompile Include="components\EditGroupDialog.tsx" />
+    <TypeScriptCompile Include="components\EditItemDialog.tsx" />
+    <TypeScriptCompile Include="components\FavItem.tsx" />
+    <TypeScriptCompile Include="components\FavGroup.tsx" />
+    <TypeScriptCompile Include="components\FavPane.tsx" />
+    <TypeScriptCompile Include="plugins\Google\Google.tsx" />
+    <TypeScriptCompile Include="index.tsx" />
+    <TypeScriptCompile Include="plugins\FavPlugIn.ts" />
+    <TypeScriptCompile Include="utils\findGroupByItem.ts" />
+    <TypeScriptCompile Include="utils\forEachGroup.ts" />
+    <TypeScriptCompile Include="utils\getGroups.ts" />
+    <TypeScriptCompile Include="utils\getTemporaryId.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <CompileCss Include="favclient.less" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="index.ysp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addFav.ysp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="addFavLauncher.ysp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(SolutionDir)Tools\webpack\webpack.targets" />
+  <Import Project="$(SolutionDir)Tools\dotless\DotLess.targets" />
+</Project>

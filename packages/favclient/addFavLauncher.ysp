@@ -1,0 +1,16 @@
+<html>
+<body>
+<script>
+	var url = "http://localhost/addfav.ysp?url=" + escape(external.menuArguments.document.URL) + "&title=" + escape(external.menuArguments.document.title);
+	try
+	{
+
+		external.menuArguments.window.showModalDialog(url, "", "dialogWidth=22; dialogHeight=16");
+	}
+	catch (e)
+	{
+		external.menuArguments.window.open(url, "", "width=400; height=300");
+	}
+</script>
+</body>
+</html>

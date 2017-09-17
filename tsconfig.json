@@ -1,0 +1,27 @@
+{
+  "include": [
+    "./packages/**/*.ts",
+    "./packages/**/*.tsx"
+  ],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "jsx": "react",
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./packages",
+    "noImplicitAny": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "./packages/*"
+      ]
+    },
+    "experimentalDecorators": true
+  }
+}

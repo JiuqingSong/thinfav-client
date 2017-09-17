@@ -1,0 +1,3 @@
+﻿const VersionInfo: string = "版本：4.0 (${year}${month}${day})";
+
+export default VersionInfo;

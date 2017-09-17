@@ -1,0 +1,21 @@
+{
+  "name": "thinfav",
+  "version": "5.0.0",
+  "description": "Thin Fav",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./node_modules/typescript/lib/tsc.js"
+  },
+  "author": "songthin",
+  "license": "ISC",
+  "dependencies": {
+    "react": "15.4.2",
+    "react-dom": "15.6.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "15.5.4",
+    "typescript": "2.5.2"
+  }
+}

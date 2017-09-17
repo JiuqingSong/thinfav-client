@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>  
+<html>
+<head>
+	<title>瘦子收藏夹 4.0</title>
+</head>
+<body>  
+    <script>
+	    var pageType = "addFav";
+        var groups=<%@Fav_WriteGroups%>;
+    </script>
+    <link href="resource/favclient.css" rel="stylesheet" type="text/css" />
+    <div id="container">  
+    </div>  
+    <script src="/resource/react.js"></script>  
+    <script src="/resource/react-dom.js"></script>  
+    <script src="/resource/favclient.js"></script>  
+</body>  
+</html>
